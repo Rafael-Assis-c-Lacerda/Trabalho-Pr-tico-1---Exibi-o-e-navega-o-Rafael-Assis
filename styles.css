@@ -14,7 +14,7 @@ header{
     background-color: rgb(32, 32, 32);
 }
 body {
-    background: linear-gradient(to left, rgb(36, 3, 56), rgb(59, 21, 78) );
+    background: linear-gradient(to left, rgb(42, 18, 53), rgb(90, 14, 126) );
     background-size: cover; 
     background-position: center; 
     background-attachment: fixed;
@@ -149,20 +149,65 @@ nav .filtro{
     background-color: rgb(81, 44, 105);
     color: white;
 }
-.bi-person-circle{
-    font-size: 50px;
+
+.bi-person-circle {
+    font-size: 2rem;
     float: left;
     display: flex;
     cursor: pointer;
     color: white;
-}
+  }
 .user{
     display: flex;
-    float: left;
+    align-items: center;
     margin: 1rem;
+    z-index: 999;
 }
 .username{
+    display: flex;
+    float: left;
     color: white;
+}
+
+.config{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: width 0.3s ease;
+    padding-top: 5rem;
+}
+.configs{
+    margin: 0;
+    padding: 0;
+    margin-top: 5rem;
+}
+.configs li {
+    list-style: none;
+    margin: 1rem 0;
+}
+.configs a {
+    color: white;
+    text-decoration: none;
+}
+.bconfig{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: white;
+    gap: 0.5rem;
+    z-index: 999;
+    cursor: pointer;
+}
+.config.active {
+    width: 12%;
 }
 
 /*main(populares e boas vindas)*/

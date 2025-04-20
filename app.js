@@ -168,3 +168,10 @@ const dados = [
       });
     }
   }
+
+const toggle = document.getElementById("toggleConfig");
+const panel = document.getElementById("configPanel");
+  
+toggle.addEventListener("click", () => {
+  panel.classList.toggle("active");
+});
