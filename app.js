@@ -152,6 +152,23 @@ const dados = [
     }
   }
 
+  function encontrarDestaques(){
+    for(let i=1;i<=3;i++){
+      let divfilme = document.getElementById(`destaque${i}`)
+      let infos = dados[i]
+
+      let imagem_filme = divfilme.querySelector("img")
+      let nome = divfilme.querySelector(".nome_filme")
+
+      nome.innerText = infos.titulo
+      imagem_filme.src = infos.imagem
+
+      divfilme.addEventListener('click', function() {
+        window.location.href =  `detalhes.html?id=${i}`;
+      });
+    }
+  }
+
   function encontrarFilmes(){
     for(let i=1;i<=12;i++){
       let divfilme = document.getElementById(`recomendado${i}`)
