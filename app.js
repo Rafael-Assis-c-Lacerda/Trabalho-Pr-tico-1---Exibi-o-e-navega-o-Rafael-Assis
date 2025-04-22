@@ -435,6 +435,7 @@ const dados = [
   ];
 
 
+  //função para criar as divs dos episodios
   function criarDivEpisodios(numEpisodios){
     for(let i=1;i<=numEpisodios;i++){
         const episodios = document.getElementById("episodios");
@@ -487,12 +488,15 @@ const dados = [
       avaliacao.innerText = infos.avaliacao;
       sinopse.innerText = infos.sinopse;
   
-      //for para completar os episodios com nome e imagem
+      
       let numEpisodios = dados.find(function(elem) {return elem.id == id;}).episodios.length;
 
-      if(numEpisodios >0){
       
+      if(numEpisodios >0){
+    
       criarDivEpisodios(numEpisodios);
+
+      //for para completar os episodios com nome e imagem
       for(let i=1;i<=4;i++){
         let episodios = document.getElementById(`episodio${i}`)
         let infos = dados.find(function(elem) {return elem.id == id;}).episodios[i-1]
@@ -512,6 +516,7 @@ const dados = [
    }
   }
 
+  //função pra botar os filmes nos destques
   function encontrarDestaques(){
     for(let i=1;i<=3;i++){
       let divfilme = document.getElementById(`destaque${i}`)
@@ -529,6 +534,7 @@ const dados = [
     }
   }
 
+  //função pra criar as divs dos filmes
   function criarDivFilmes(numFilmes){
     for(let i=1;i<=numFilmes;i++){
       if(i<=6){
@@ -559,6 +565,7 @@ const dados = [
     }
   }
 
+  //botar os filmes no index
   function encontrarFilmes(){
     let numFilmes = dados.length;
 
@@ -585,6 +592,7 @@ const dados = [
     }
   }
 
+//parte pra fazer a janelonha do perfil abrir
 const toggle = document.getElementById("toggleConfig");
 const panel = document.getElementById("configPanel");
   
