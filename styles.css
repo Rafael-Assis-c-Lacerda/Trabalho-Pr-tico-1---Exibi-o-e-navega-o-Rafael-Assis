@@ -15,7 +15,7 @@ header{
     z-index: 997;
 }
 body {
-    background: linear-gradient(to left, rgb(42, 18, 53), rgb(61, 13, 83) );
+    background: linear-gradient(to left, rgb(42, 18, 53), rgb(44, 10, 59) );
     background-size: cover; 
     background-position: center; 
     background-attachment: fixed;
