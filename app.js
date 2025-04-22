@@ -4,7 +4,7 @@ const dados = [
       titulo: "One Piece",
       sinopse: "Monkey D. Luffy é um jovem pirata com o sonho de se tornar o Rei dos Piratas. Ele parte em uma jornada pelo perigoso Grand Line em busca do lendário tesouro One Piece, formando uma tripulação única e enfrentando inimigos poderosos.",
       avaliacao: "9.1",
-      trailer: "https://www.youtube.com/embed/YFbno_aPm0w?si=VADqKrtUPAeWtawY",
+      trailer: "https://www.youtube.com/embed/YFbno_aPm0w?si=OyJjbMd2Jqa3zhCR",
       diretor: "Konosuke Uda",
       data: "1999",
       imagem: "images/one_piece.png",
@@ -434,6 +434,28 @@ const dados = [
     }
   ];
 
+
+  function criarDivEpisodios(numEpisodios){
+    for(let i=1;i<=numEpisodios;i++){
+        const episodios = document.getElementById("episodios");
+
+        const div = document.createElement("div");
+        div.className = "col";
+        div.id = `episodio${i}`
+
+        div.innerHTML = `
+          <div class="card bg-dark text-white" id="episodio1">
+            <img src="" class="card-img-top" alt="">
+            <div class="card-body">
+              <h5 class="card-title">episodio1</h5>
+              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            </div>
+          </div>
+      `;
+      episodios.appendChild(div);
+    }
+  }
+
   //função para carregar detalhes.html
   function carregarDetalhes() {
     //pega o id com base no link informado
@@ -466,6 +488,11 @@ const dados = [
       sinopse.innerText = infos.sinopse;
   
       //for para completar os episodios com nome e imagem
+      let numEpisodios = dados.find(function(elem) {return elem.id == id;}).episodios.length;
+
+      if(numEpisodios >0){
+      
+      criarDivEpisodios(numEpisodios);
       for(let i=1;i<=4;i++){
         let episodios = document.getElementById(`episodio${i}`)
         let infos = dados.find(function(elem) {return elem.id == id;}).episodios[i-1]
@@ -474,14 +501,15 @@ const dados = [
         let titulo = episodios.querySelector(".card-title");
         let resumo = episodios.querySelector(".card-text");
 
-        imagem.src = infos.src;
+        //imagem.src = infos.src;
         titulo.innerText = infos.titulo;
         resumo.innerText = infos.sinopse;
       }
 
-    } else {
-      console.error("Filme não encontrado com o id:", id);
+     }else{
+      console.error("Nenhum episodio:", id);
     }
+   }
   }
 
   function encontrarDestaques(){
@@ -501,20 +529,59 @@ const dados = [
     }
   }
 
+  function criarDivFilmes(numFilmes){
+    for(let i=1;i<=numFilmes;i++){
+      if(i<=6){
+        const recomendados = document.getElementById("recomendados");
+
+        const div = document.createElement("div");
+        div.className = "filmes";
+        div.id = `recomendado${i}`;
+
+        div.innerHTML = `
+          <img src="https://picsum.photos/id/1/200/300" alt="">
+         <span class="nome_filme">Nome do filme</span>   <button class = "bfavorito"><i class="bi bi-star"></i><i class="bi bi-star-fill invisiblebegin"></i></button> <button class = "blike"><i class="bi bi-hand-thumbs-up"></i><i class="bi bi-hand-thumbs-up-fill invisiblebegin"></i></button>
+      `;
+      recomendados.appendChild(div);
+      }else{
+        const favoritos = document.getElementById("favoritos");
+
+        const div = document.createElement("div");
+        div.className = "filmes";
+        div.id = `recomendado${i}`;
+
+        div.innerHTML = `
+          <img src="https://picsum.photos/id/1/200/300" alt="">
+         <span class="nome_filme">Nome do filme</span>   <button class = "bfavorito"><i class="bi bi-star"></i><i class="bi bi-star-fill invisiblebegin"></i></button> <button class = "blike"><i class="bi bi-hand-thumbs-up"></i><i class="bi bi-hand-thumbs-up-fill invisiblebegin"></i></button>
+      `;
+      favoritos.appendChild(div);
+      }
+    }
+  }
+
   function encontrarFilmes(){
-    for(let i=1;i<=12;i++){
-      let divfilme = document.getElementById(`recomendado${i}`)
-      let infos = dados[i-1]
+    let numFilmes = dados.length;
 
-      let nome = divfilme.querySelector(".nome_filme")
-      let imagem_filme = divfilme.querySelector("img")
+    if(numFilmes >0){
 
-      nome.innerText = infos.titulo
-      imagem_filme.src = infos.imagem
+      criarDivFilmes(numFilmes);
 
-      divfilme.addEventListener('click', function() {
-        window.location.href =  `detalhes.html?id=${i}`;
-      });
+      for(let i=1;i<=numFilmes;i++){
+        let divfilme = document.getElementById(`recomendado${i}`)
+        let infos = dados[i-1]
+
+        let nome = divfilme.querySelector(".nome_filme")
+        let imagem_filme = divfilme.querySelector("img")
+
+        nome.innerText = infos.titulo
+        imagem_filme.src = infos.imagem
+
+        divfilme.addEventListener('click', function() {
+          window.location.href =  `detalhes.html?id=${i}`;
+        });
+      }
+    }else{
+      console.error("Nenhum filme:", id);
     }
   }
 
