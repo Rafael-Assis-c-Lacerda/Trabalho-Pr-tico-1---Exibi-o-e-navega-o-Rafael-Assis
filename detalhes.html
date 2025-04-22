@@ -9,12 +9,13 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.x.x/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
     <script src="app.js" defer></script>
 </head>
 
-<body>
-    <!--header-->
-    <header>
+<body onload="carregarDetalhes()">
+     <!--header-->
+     <header>
         <div class = "logo">
             <img src="images/cruchroll.png" alt="">
         </div>
@@ -40,20 +41,99 @@
                     </ul>
             </div>
             <div class = "filtro">
-                <button class = "bhome"><a href="index.html" class="text-decoration-none text-reset"><i class="bi bi-house-door">Home</i></button>
+                <button class = "bhome"><a href="index.html" class="text-decoration-none text-reset"><i class="bi bi-house-door">Home</i></a></button>
             </div>
         </nav>
-        <div class = "perfil">   
-            <h1 class="username">Username</h1>
-            <i class="bi bi-person-circle"></i>
-        </div>
+
+     <!--Janelinha do perfil-->
+
+        <div class="user">
+            <div class="bconfig" id="toggleConfig">
+              <span class="username">Username</span>
+              <i class="bi bi-person-circle"></i>
+            </div>
+        
+          <div class="config" id="configPanel">
+            <ul class="configs">
+              <li><a href="#">Sign in</a></li>
+              <li><a href="#">Log in</a></li>
+              <li><a href="#">Configurações</a></li>
+            </ul>
+          </div>
     </header>
+
+    <!--Trailer, sinopse, etc-->
+
+    <main clas="detalhes" id="detalhes">
+        <h6 class="titulo_filme">Titulo</h6>
+        <div class ="trailer ">
+            <iframe src="" title="YouTube video player" frameborder="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div class="movie_infos">
+            <p>Diretor e avaliação:</p>
+            <p class="diretor">Diretor</p>
+            <p class="lancamento">Data</p>
+            <p class="avaliacao">avaliação</p>
+            <p>Sinopse:</p>
+            <p class="sinopse">Sinopse texto</p>
+        </div>
+    </main>
     
+    <!--Itens(episodios)-->
+
+    <h1 class="text-white">Alguns episodios:</h1>
+
+    <div class="row row-cols-1 row-cols-md-2 g-4" id="episodios">
+        <div class="col">
+          <div class="card bg-dark text-white" id="episodio1">
+            <img src="" class="card-img-top" alt="">
+            <div class="card-body">
+              <h5 class="card-title">episodio1</h5>
+              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card bg-dark text-white" id="episodio2">
+            <img src="" class="card-img-top" alt="">
+            <div class="card-body">
+              <h5 class="card-title">episodio2</h5>
+              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card bg-dark text-white" id="episodio3">
+            <img src="" class="card-img-top" alt="">
+            <div class="card-body">
+              <h5 class="card-title">episodio3</h5>
+              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card bg-dark text-white" id="episodio4">
+            <img src="" class="card-img-top" alt="">
+            <div class="card-body">
+              <h5 class="card-title">episodio4</h5>
+              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
     <!--Direitos autorais-->
     <footer class = "direitos_autorais">
-  
-        <p>@Rafael_lacerda Livre uso do design</p>
+        <h1>Informações do aluno:</h1>
+        <span>Autoria</span>
+
+        <p>
+            Aluno: Rafael Assis Carvalho Lacerda<br>
+            Curso: Ciencia da computação<br>
+            Turno: Manhã<br>
+            Matricula: 885033<br>
+            <a href="https://github.com/Rafael-Assis-c-Lacerda">Perfil github</a><br>
+        </p>
     </footer>
-    
 </body>
 </html>
